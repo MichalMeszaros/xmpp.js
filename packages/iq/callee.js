@@ -72,8 +72,10 @@ function iqHandler(entity) {
 
     let reply
     try {
+      console.error("ERROR: " + JSON.stringify(err))
       reply = await next()
     } catch (err) {
+      console.error("ERROR: " + JSON.stringify(err))
       entity.emit('error', err)
       reply = buildError('cancel', 'internal-server-error')
     }
